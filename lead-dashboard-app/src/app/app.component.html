@@ -1,0 +1,21 @@
+<h1>Leads</h1>
+<p-table [value]="leads" stripedRows>
+  <ng-template #header>
+    <tr>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Message</th>
+    </tr>
+</ng-template>
+<ng-template #body let-lead>
+  <tr>
+      <td>{{ lead.contact.email }}</td>
+      <td>{{ lead.contact.phoneNumber }}</td>
+      <td>{{ lead.contact.lastName + ', ' + lead.contact.firstName }}</td>
+      <td>{{ lead.subject }}</td>
+      <td>{{ lead.message }}</td>
+  </tr>
+</ng-template>
+</p-table>
