@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TableModule } from 'primeng/table';
 import { LeadService } from './services/lead/lead.service';
 import { Lead } from './models/lead';
 
@@ -8,7 +8,7 @@ import { Lead } from './models/lead';
  */
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [TableModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

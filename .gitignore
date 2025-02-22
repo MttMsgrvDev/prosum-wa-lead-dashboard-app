@@ -1,5 +1,6 @@
 .DS_STORE
 
+/lead-dashboard-app/dist/
 /dist/
 /bazel-out
 /integration/bazel/bazel-*
