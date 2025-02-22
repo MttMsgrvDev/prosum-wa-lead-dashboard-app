@@ -1,12 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LeadService } from './services/lead/lead.service';
+import { Lead } from './models/lead';
 
+/**
+ * The main application component.
+ */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'lead-dashboard-app';
+
+  leads: Lead[] = [];
+
+  /**
+   * Creates a new instance of AppComponent.
+   * @param leadService Provides services to get lead data.
+   */
+  constructor(private leadService: LeadService) {
+
+  }
+
+  ngOnInit(): void {
+    this.leadService.getLeads()
+      .subscribe(leads => {
+        this.leads = leads;
+      });
+  }
 }
