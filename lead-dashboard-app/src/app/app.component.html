@@ -2,6 +2,7 @@
 <p-table [value]="leads" stripedRows>
   <ng-template #header>
     <tr>
+        <th>View</th>
         <th>Email</th>
         <th>Phone Number</th>
         <th>Name</th>
@@ -11,6 +12,7 @@
 </ng-template>
 <ng-template #body let-lead>
   <tr>
+      <td><p-button label="view" icon="pi pi-eye" (onClick)="showLeadDetailDialog(lead)"></p-button></td>
       <td>{{ lead.contact.email }}</td>
       <td>{{ lead.contact.phoneNumber }}</td>
       <td>{{ lead.contact.lastName + ', ' + lead.contact.firstName }}</td>
@@ -19,3 +21,12 @@
   </tr>
 </ng-template>
 </p-table>
+
+<p-dialog
+  header="Lead Detail"
+  [modal]="true"
+  [(visible)]="showLeadDetail"
+  position="top"
+  [style]="{ width: '50%', height: '50%' }">
+  <app-lead-detail [lead]="lead"></app-lead-detail>
+</p-dialog>
