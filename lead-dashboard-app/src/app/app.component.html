@@ -4,10 +4,10 @@
     <tr>
         <th [width]="'5%'">View</th>
         <th [width]="'15%'">Name</th>
-        <th [width]="'10%'">Email</th>
+        <th [width]="'7%'">Email</th>
         <th [width]="'15%'">Phone</th>
-        <th [width]="'40%'">Subject</th>
-        <th [width]="'15%'">Created</th>
+        <th [width]="'38%'">Subject</th>
+        <th [width]="'20%'">Created</th>
     </tr>
 </ng-template>
 <ng-template #body let-lead>
@@ -27,6 +27,6 @@
   [modal]="true"
   [(visible)]="showLeadDetail"
   position="top"
-  [style]="{ width: '50%', height: '50%' }">
+  [style]="{ width: '80%' }">
   <app-lead-detail [lead]="lead"></app-lead-detail>
 </p-dialog>
