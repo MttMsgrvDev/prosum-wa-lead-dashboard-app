@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { map, Observable, Subscription } from 'rxjs';
 import { Lead } from '../../models/lead';
 import { HttpClient } from '@angular/common/http';
 
@@ -25,6 +25,10 @@ export class LeadService {
    * @instance
    */
   getLeads() : Observable<Lead[]> {
-    return this.httpClient.get<Lead[]>('data/lead-data.json');
+    return this.httpClient.get<Lead[]>('data/lead-data.json')
+      .pipe(map(data => {
+        data.forEach((lead) => lead.createdDate = new Date(lead.createdDate));
+        return data;
+      }));
   }
 }

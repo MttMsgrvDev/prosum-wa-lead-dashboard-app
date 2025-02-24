@@ -2,22 +2,22 @@
 <p-table [value]="leads" stripedRows>
   <ng-template #header>
     <tr>
-        <th>View</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>Name</th>
-        <th>Subject</th>
-        <th>Message</th>
+        <th [width]="'5%'">View</th>
+        <th [width]="'15%'">Name</th>
+        <th [width]="'10%'">Email</th>
+        <th [width]="'15%'">Phone</th>
+        <th [width]="'40%'">Subject</th>
+        <th [width]="'15%'">Created</th>
     </tr>
 </ng-template>
 <ng-template #body let-lead>
   <tr>
-      <td><p-button label="view" icon="pi pi-eye" (onClick)="showLeadDetailDialog(lead)"></p-button></td>
+      <td><p-button icon="pi pi-eye" (onClick)="showLeadDetailDialog(lead)"></p-button></td>
+      <td>{{ lead.contact.lastName + ', ' + lead.contact.firstName }}</td>
       <td>{{ lead.contact.email }}</td>
       <td>{{ lead.contact.phoneNumber }}</td>
-      <td>{{ lead.contact.lastName + ', ' + lead.contact.firstName }}</td>
       <td>{{ lead.subject }}</td>
-      <td>{{ lead.message }}</td>
+      <td>{{ formatDate(lead.createdDate) }}</td>
   </tr>
 </ng-template>
 </p-table>

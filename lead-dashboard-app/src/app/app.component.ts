@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import dateFormat from "dateformat";
 
 import { LeadService } from './services/lead/lead.service';
 import { Lead } from './models/lead';
@@ -63,5 +64,13 @@ export class AppComponent implements OnInit {
   showLeadDetailDialog(lead: Lead): void {
     this.lead = lead;
     this.showLeadDetail = true;
+  }
+
+  /**
+   * Formats a date into a string.
+   * @param date The date to format.
+   */
+  formatDate(date: Date) : string {
+    return dateFormat(date, 'mm/dd/yyyy hh:MM TT')
   }
 }
